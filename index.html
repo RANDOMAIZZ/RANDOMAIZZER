@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Богдан Альникин · А.Б.В.</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<!-- HERO -->
+<section id="hero">
+    <img src="img/image/avatar.jpg" alt="avatar" class="hero-avatar">
+    <h1 class="hero-name glitch-line">尺卂几ᗪㄖ爪卂丨乙乙乇尺</h1>
+    <p class="hero-sub">А.Б.В. · 1 июня 2004 · Пятигорск · 22 года</p>
+    <p class="hero-contacts">tg: <a href="#">@randomaizzer</a> · vk: <a href="#">RANDOMAIZZER</a></p>
+    <div class="hero-quote" id="rotating-quote" onclick="nextQuote()">
+        «Я не ищу смысл жизни. Я ищу ощущение, что не зря трачу дни.»
+    </div>
+</section>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#about" class="nav-link">Путь</a>
+        <a href="#skills" class="nav-link">Навыки</a>
+        <a href="#projects" class="nav-link">Проекты</a>
+        <a href="#philosophy" class="nav-link">Философия</a>
+        <a href="#poetry" class="nav-link">Стихи</a>
+        <a href="#gallery" class="nav-link">Галерея</a>
+    </div>
+</nav>
+
+<!-- PLAYER -->
+<div id="player-bar-container">
+    <div class="player-inner">
+        <div class="player-left">
+            <button id="player-prev" class="player-btn" onclick="prevTrack()" title="Предыдущий">⏮</button>
+            <button id="player-play" class="player-btn" onclick="playerPlay()">▶</button>
+            <button id="player-next" class="player-btn" onclick="nextTrack()" title="Следующий">⏭</button>
+            <div class="player-track-info">
+                <div class="player-track-name" id="player-track-name">—</div>
+                <div class="player-track-artist" id="player-track-artist"></div>
+            </div>
+        </div>
+        <div class="player-center" id="player-bar" onclick="seekMusic(event)">
+            <div class="player-track-progress">
+                <div id="player-progress" class="player-progress-fill" style="width:0%"></div>
+            </div>
+            <div class="player-time">
+                <span id="player-current">0:00</span>
+                <span id="player-total">0:00</span>
+            </div>
+        </div>
+        <div class="player-right">
+            <button class="player-btn" onclick="toggleMusic()" title="Play/Pause">♫</button>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <div class="section-inner">
+        <div class="section-label">Путь</div>
+        <h2 class="section-title glitch-line">Биография</h2>
+        <p class="section-desc">Как из мальчика без отца вырос человек-оркестр.</p>
+
+        <div class="card glitch-hover">
+            <div class="card-header">
+                <span class="icon">◈</span>
+                <span class="card-title">Автобиография</span>
+            </div>
+
+            <div class="expand-item open" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <strong><span class="glow-text">2004</span> · Начало в тени отца</strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    Я родился в Пятигорске, в городе, где горы упираются в небо, а воздух пахнет травами и тишиной. Отца я не знал. Он ушёл до того, как я научился говорить, и это стало моим первым уроком: <span class="glow-text">люди могут уходить, даже если ты их ещё не видел.</span>
+                    <br><br>
+                    Меня растили мама, бабушка и дедушка. Дом был тёплым, но тихим. <span class="hl">Мужского плеча рядом не было</span> — я учился всему сам: забивать гвозди, чинить технику, не ныть, когда больно. Я не знал, что такое «пойти с отцом на рыбалку». <span class="glow-text-warm">Я разговаривал с собой, с техникой и с тишиной.</span>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <strong><span class="glow-text">2015</span> · Первый контакт с системой <span class="stat-badge">11 лет</span></strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    В 11 лет я впервые взял в руки старый андроид — и полез в его систему через KingRoot. Мне не нужны были игры. <span class="glow-text">Мне нужно было понять, как это работает изнутри.</span> С этого момента я перестал быть просто пользователем. Я стал <span class="em">исследователем</span>.
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <strong><span class="glow-text">2020–2023</span> · Техникум. Дорога в ИТ <span class="stat-badge">Староста</span> <span class="stat-badge">8 дипломов</span></strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    Я пошёл в техникум на специальность «Информационные системы и программирование». Сначала были тройки, потом четвёрки, потом пятёрки. Я стал старостой. Свой диплом я написал ещё до поступления — предложил свою тему, и её утвердили. Потом я помог с дипломами 8 одногруппникам, и все их работы признали лучшими. Мою — первой.
+                    <br><br>
+                    <span class="glow-text-warm">Я не искал славы. Я просто делал то, что мог.</span>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <strong><span class="glow-text">2023</span> · Армия. Моя плата за жизнь <span class="stat-badge">40°C</span> <span class="stat-badge">Седина</span></strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    Потом была армия. Год. Почти без связи. Два звонка с чужого телефона. Госпиталь, <span class="glow-text-warm">температура 40</span>, блокнот, в котором я рисовал какую-то херню, пока рядом солдат говорил со своей девушкой. Я слушал его голос и думал о Диане. Она ждала. Это держало.
+                    <br><br>
+                    Я вернулся <span class="hl">другим</span>. Не хуже, не лучше — <span class="hl">другим</span>. С сединой в волосах и пустотой внутри. <span class="glow-text">Это была плата за то, что я выжил.</span>
+                    <br><br>
+                    После армии у меня было онемение чувств. Я не чувствовал ни радости, ни горя — я всё имитировал. Смеялся из вежливости. Чувства притупились настолько, что я казался себе роботом. Я понял: это называется <span class="tag-gold">атараксия</span>. Но я решил не сдаваться.
+                    <br><br>
+                    <span class="glow-text-warm">Я заполнил эту пустоту кодом, паяльником, 3D-графикой и проектами. Я стал собирать себя заново, как конструктор.</span>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <strong><span class="glow-text">2024–2025</span> · Возвращение</strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    Я устроился <span class="em">сисадмином</span>. Начал с принтеров — дорос до сетей. Поднял NAS, написал ботов, создал свой VPN. Я восстанавливался. <span class="hl-warm">Медленно, но верно.</span>
+                    <br><br>
+                    Я начал писать <span class="hl-pink">стихи</span>. Я начал рисовать в <span class="hl">Blender</span>. Я начал чинить телефоны, которые другие выкидывали.
+                    <br><br>
+                    <span class="glow-text">Я стал <span class="glitch-line">человеком-оркестром</span>.</span>
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <strong><span class="glow-text">2026</span> · Квантование <span class="stat-badge">22 года</span></strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    Я пережил расставания. Я пережил любовь, которая оставила шрамы. И я не сломался.
+                    <br><br>
+                    <span class="glow-text">Я стал квантованным.</span> Теперь я открываю части себя для конкретных целей, а не всего себя целиком. Это легче, эффективнее и честнее.
+                    <br><br>
+                    Мне 22 года. У меня есть седина, опыт, друзья и проекты. У меня нет высшего образования, но я могу сделать то, что многие с дипломом не умеют.
+                </div>
+            </div>
+        </div>
+
+        <div class="card glitch-hover">
+            <div class="card-header">
+                <span class="icon">⊕</span>
+                <span class="card-title">Формула жизни</span>
+            </div>
+            <div class="formula-block glitch-hover">
+                <span class="op">0</span> <span class="eq">+</span> <span class="op">1</span> <span class="eq">=</span> <span class="result">10</span>
+            </div>
+            <div class="quote-block">
+                «Я — не половинка. Я — <span class="hl">единица</span>, которая ищет другую <span class="hl">единицу</span>. Мы создаём <span class="em">новый разряд</span>.»
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+    <div class="section-inner">
+        <div class="section-label">Арсенал</div>
+        <h2 class="section-title glitch-line">Навыки</h2>
+        <p class="section-desc">Технарь с душой поэта — от сетей до пайки.</p>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#818cf8;">▣</span>
+                <span class="card-title">Сети & Системы</span>
+            </div>
+            <div class="skill-grid">
+                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Сети LAN/WAN</span>
+                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">VPN</span>
+                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">NAS</span>
+                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">AD/GPO</span>
+                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Linux</span>
+                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Windows Server</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#34d399;">⌘</span>
+                <span class="card-title">Код & Скрипты</span>
+            </div>
+            <div class="skill-grid">
+                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">Python</span>
+                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">Bash</span>
+                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">PowerShell</span>
+                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">PyQt5</span>
+                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">Tkinter</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#a78bfa;">◆</span>
+                <span class="card-title">3D & Дизайн</span>
+            </div>
+            <div class="skill-grid">
+                <span class="genre-tag" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">Blender</span>
+                <span class="genre-tag" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">3D-моделинг</span>
+                <span class="genre-tag" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">Photoshop</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#f472b6;">♢</span>
+                <span class="card-title">AI & Voice</span>
+            </div>
+            <div class="skill-grid">
+                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">faster-whisper</span>
+                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">DeepSeek</span>
+                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">RVC</span>
+                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">OCR/TTS</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#fbbf24;">⚒</span>
+                <span class="card-title">Hardware & Ремонт</span>
+            </div>
+            <div class="skill-grid">
+                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">Пайка</span>
+                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">DC-DC</span>
+                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">BMS</span>
+                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">EDL-cable</span>
+                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">Ремонт телефонов</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#f87171;">◎</span>
+                <span class="card-title">Жизненные</span>
+            </div>
+            <div class="skill-grid">
+                <span class="genre-tag" style="border-color:rgba(248,113,113,0.3);color:#f87171;">Сантехника</span>
+                <span class="genre-tag" style="border-color:rgba(248,113,113,0.3);color:#f87171;">Электрика</span>
+                <span class="genre-tag" style="border-color:rgba(248,113,113,0.3);color:#f87171;">Борщ</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+    <div class="section-inner">
+        <div class="section-label">Портфолио</div>
+        <h2 class="section-title glitch-line">Проекты</h2>
+        <p class="section-desc">Избранное — от нейросетей до паяльника.</p>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#34d399;">◈</span>
+                <span class="card-title">Google Drive Stack</span>
+                <span class="stat-badge">Python</span>
+            </div>
+            <p class="card-text">Полноценное GUI-приложение на Tkinter, которое монтирует Google Диски в «Проводник» Windows как сетевые диски (F:, G:, J:).</p>
+            <div class="expand-item" onclick="this.classList.toggle('open')" style="border:none;padding:0.4rem 0;">
+                <span class="expand-preview" style="font-size:0.85rem;color:var(--accent);">
+                    Подробнее <span class="expand-icon">▼</span>
+                </span>
+                <div class="expand-full">
+                    <span class="glow-text">Движок:</span> rclone, управляемый через subprocess.<br>
+                    <span class="glow-text">Фичи:</span> тёмная тема, несколько аккаунтов, автозапуск, установка WinFSP из приложения, статистика места и почта аккаунта.<br>
+                    <span class="glow-text-warm">Суть:</span> надоело лазить в браузер — сделал инструмент, которым может пользоваться даже не-технарь.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#a78bfa;">◈</span>
+                <span class="card-title">Buhalgini / Buhbear</span>
+                <span class="stat-badge">Blender</span>
+            </div>
+            <p class="card-text">Серия 3D-концептов на основе легендарного УАЗ-452 «Буханка». Один объект — целая вселенная стилей.</p>
+            <div class="expand-item" onclick="this.classList.toggle('open')" style="border:none;padding:0.4rem 0;">
+                <span class="expand-preview" style="font-size:0.85rem;color:var(--accent);">
+                    Подробнее <span class="expand-icon">▼</span>
+                </span>
+                <div class="expand-full">
+                    <span class="glow-text">Buhalgini</span> — Буханка × Lamborghini. Чёрный матовый, карбон, неон, агрессивный обвес.<br>
+                    <span class="glow-text">Buhbear</span> — Буханка-мишка с шерстью, ушами и розовыми подушками на колёсах. Поставлен на Potsdamer Platz.<br>
+                    <span class="glow-text">Буханка-лимузин</span> — 6 колёс, камуфляж, люки, кенгурин, прожекторы.<br>
+                    <span class="glow-text">Буханка-кибертрак</span> — минимализм, серый, угловатый, в стиле Cybertruck.<br>
+                    <span class="glow-text">Буханка-корч</span> — ржавая, грязь, зелёный неон, «Безумный Макс».<br>
+                    <span class="glow-text-warm">Суть:</span> проверить, как далеко можно зайти, взяв один объект и превратив его во всё что угодно.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#f472b6;">◈</span>
+                <span class="card-title">Neural Overlay</span>
+                <span class="stat-badge">AI</span>
+            </div>
+            <p class="card-text">Приложение захватывает экран в реальном времени и обрабатывает кадры через нейросетевые фильтры.</p>
+            <div class="expand-item" onclick="this.classList.toggle('open')" style="border:none;padding:0.4rem 0;">
+                <span class="expand-preview" style="font-size:0.85rem;color:var(--accent);">
+                    Подробнее <span class="expand-icon">▼</span>
+                </span>
+                <div class="expand-full">
+                    <span class="glow-text">Захват:</span> dxcam — быстрый захват в обход стандартных методов Windows.<br>
+                    <span class="glow-text">Стили:</span> Realistic, Cartoon, Anime, Cyberpunk, Vaporwave, Glitch, Steampunk, Oil Painting, Retro, Neon.<br>
+                    <span class="glow-text">Горячие клавиши:</span> цифры 1–0 для смены стилей, / для скрытия HUD.<br>
+                    <span class="glow-text-warm">Суть:</span> чистый киберпанк — сидишь, нажимаешь кнопку, и мир вокруг становится аниме в реальном времени.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#fbbf24;">◈</span>
+                <span class="card-title">Голосовой ассистент «Бугеит»</span>
+                <span class="stat-badge">Voice</span>
+            </div>
+            <p class="card-text">Голосовой ассистент с локальным ИИ, распознаванием речи и управлением ПК.</p>
+            <div class="expand-item" onclick="this.classList.toggle('open')" style="border:none;padding:0.4rem 0;">
+                <span class="expand-preview" style="font-size:0.85rem;color:var(--accent);">
+                    Подробнее <span class="expand-icon">▼</span>
+                </span>
+                <div class="expand-full">
+                    <span class="glow-text">Распознавание:</span> faster-whisper (CUDA).<br>
+                    <span class="glow-text">Синтез:</span> Edge TTS.<br>
+                    <span class="glow-text">Мозг:</span> локальный DeepSeek через OpenCode.<br>
+                    <span class="glow-text">Команды:</span> открыть/закрыть программы, поиск, скриншот, управление VK-музыкой, Telegram, таймеры, погода, перевод, выключение.<br>
+                    <span class="glow-text-warm">Суть:</span> не просто «напоминалка», а живой помощник, который понимает речь и управляет компом.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#34d399;">◈</span>
+                <span class="card-title">TG AutoResponder</span>
+                <span class="stat-badge">Bot</span>
+            </div>
+            <p class="card-text">Telegram-бот с локальным AI, поддержкой файлов, OCR и голосовых.</p>
+            <div class="expand-item" onclick="this.classList.toggle('open')" style="border:none;padding:0.4rem 0;">
+                <span class="expand-preview" style="font-size:0.85rem;color:var(--accent);">
+                    Подробнее <span class="expand-icon">▼</span>
+                </span>
+                <div class="expand-full">
+                    <span class="glow-text">Контекст:</span> несколько чатов одновременно, до 30 последних сообщений.<br>
+                    <span class="glow-text">Файлы:</span> извлекает текст из PDF, DOCX, TXT, изображений.<br>
+                    <span class="glow-text">Голос:</span> распознаёт через faster-whisper и отвечает.<br>
+                    <span class="glow-text-warm">Суть:</span> бот, который реально понимает, что ему говорят, и отвечает как человек.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon" style="color:#f87171;">◈</span>
+                <span class="card-title">EDL-кабель и прошивка Redmi</span>
+                <span class="stat-badge">Hardware</span>
+            </div>
+            <p class="card-text">Самодельный EDL-кабель из двух транзисторов для обхода защиты Xiaomi.</p>
+            <div class="expand-item" onclick="this.classList.toggle('open')" style="border:none;padding:0.4rem 0;">
+                <span class="expand-preview" style="font-size:0.85rem;color:var(--accent);">
+                    Подробнее <span class="expand-icon">▼</span>
+                </span>
+                <div class="expand-full">
+                    <span class="glow-text">Задача:</span> прошить Redmi Note 14 Pro с заблокированным загрузчиком (Mi Unlock не работает в РФ).<br>
+                    <span class="glow-text">Решение:</span> резистор 10кОм между D+ и D- — перевод в EDL-режим. Работа с mtkclient.<br>
+                    <span class="glow-text">Результат:</span> упёрся в криптографическую подпись (auth_sv5.auth).<br>
+                    <span class="glow-text-warm">Суть:</span> не побоялся лезть в аппаратную часть — паять и работать с криптографией на уровне прошивки.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy" class="section">
+    <div class="section-inner">
+        <div class="section-label">Кредо</div>
+        <h2 class="section-title glitch-line">Философия & Цели</h2>
+        <p class="section-desc">Как я вижу мир и куда иду.</p>
+
+        <div class="card glitch-hover">
+            <div class="card-header">
+                <span class="icon" style="color:#f0abfc;">◈</span>
+                <span class="card-title">Кредо</span>
+            </div>
+            <div class="quote-block">
+                «Я не ищу смысл жизни. <span class="glow-text-warm">Я ищу ощущение, что не зря трачу дни.</span>»
+            </div>
+            <div class="quote-block">
+                «<span class="hl">Ненормальный</span> человек в <span class="hl">нормальном</span> обществе будет <span class="em">ненормальным</span>. <span class="hl">Нормальный</span> человек в <span class="hl">ненормальном</span> обществе будет <span class="em">ненормальным</span>.»
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">⊕</span>
+                <span class="card-title">Куда мне идти?</span>
+            </div>
+            <div class="quote-block">
+                «Я живу в точке, где <span class="hl">всё уже есть</span>: опыт, навыки, характер. Вопрос только в том, <span class="em">куда я хочу двигаться</span>.»
+            </div>
+
+            <div class="expand-item" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <span class="tag-gold">1</span> <strong>Работа. Не карьера, а <span class="hl-warm">ремесло</span></strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    Я не ищу «должность». Я ищу проекты, где могу быть полезен.
+                    <br><br>
+                    <span class="glow-text">Системное администрирование</span> — это моя база. Я уже умею строить сети и серверы.<br>
+                    <span class="glow-text">Автоматизация</span> — это будущее. Скрипты, которые заменяют ручной труд.<br>
+                    <span class="glow-text">Фриланс</span> — это свобода. Если новая работа даст мне свободу — возьму. Если нет — найду сам.
+                    <br><br>
+                    Я могу работать в любой сфере, где есть системы. Я не привязан к одному месту.
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <span class="tag-gold">2</span> <strong>Проекты. Мои детища</strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    Мой Blender, мой «Бугеит», мой «Google Drive Stack» — <span class="glow-text-warm">это не хобби. Это мои следы в этом мире.</span>
+                    <br><br>
+                    Я продолжаю доделывать их. Даже если никто не увидит — я знаю, что они есть. Это важно.
+                </div>
+            </div>
+
+            <div class="expand-item" onclick="this.classList.toggle('open')">
+                <div class="expand-preview">
+                    <span class="tag-gold">3</span> <strong>Жизнь. Учусь отдыхать</strong>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="expand-full">
+                    Я умею работать, чинить, творить. Теперь учусь просто быть.
+                    <br><br>
+                    <span class="glow-text-warm">Иногда можно ничего не делать.</span> Сидеть на лавочке, смотреть на закат, слушать тишину. Я не обязан всегда быть в потоке.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">♥</span>
+                <span class="card-title">Какую девушку мне искать?</span>
+            </div>
+            <div class="quote-block">
+                «Это самый важный вопрос. Я уже знаю ответ. Мне не нужна <span class="hl-pink">«красивая»</span>. Мне не нужна <span class="hl-pink">«умная»</span>. <span class="glow-text">Мне нужна та, с которой я могу быть собой без масок.</span>»
+            </div>
+
+            <div class="rel-card" style="border-left-color:#f472b6;">
+                <span class="tag-pink">●</span> <strong>Не боится моей глубины.</strong><br>
+                <span style="color:var(--text-dim);font-size:0.88rem;">Я сложный. Во мне много боли, странностей и философии. Кто-то назовёт это «тяжёлым багажом». Я называю это «опытом».</span>
+            </div>
+            <div class="rel-card" style="border-left-color:#fbbf24;">
+                <span class="tag-gold">●</span> <strong>Умеет смеяться над абсурдом.</strong><br>
+                <span style="color:var(--text-dim);font-size:0.88rem;">Если я скажу «давай полетим на Луну на экскаваторе», она ответит: «а ты взял билеты?».</span>
+            </div>
+            <div class="rel-card" style="border-left-color:#818cf8;">
+                <span class="glow-text">●</span> <strong>Не ищет идеальности.</strong><br>
+                <span style="color:var(--text-dim);font-size:0.88rem;">Она знает, что я могу быть сломанным, уставшим и странным — и это нормально.</span>
+            </div>
+            <div class="rel-card" style="border-left-color:#f0abfc;">
+                <span style="color:#f0abfc">●</span> <strong>Видит мои шрамы и не отворачивается.</strong><br>
+                <span style="color:var(--text-dim);font-size:0.88rem;">Я научился не прятать их. Теперь я хочу, чтобы кто-то мог на них смотреть без страха.</span>
+            </div>
+
+            <div class="formula-block" style="margin-top:1.2rem;">
+                <span class="op">0</span> <span class="eq">+</span> <span class="op">1</span> <span class="eq">=</span> <span class="result">10</span>
+            </div>
+            <div style="text-align:center;color:var(--text-dim);font-style:italic;font-size:0.9rem;">
+                Я не ищу «половинку». Я ищу другую единицу, которая сложится со мной в новый разряд.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">◈</span>
+                <span class="card-title">Цели</span>
+            </div>
+            <div class="goal-grid">
+                <div class="goal-card" style="border-left-color:#818cf8;">
+                    <div class="goal-label" style="color:#818cf8;">РАБОТА</div>
+                    <div class="goal-text">Углубиться в администрирование и автоматизацию. Фриланс или своё дело.</div>
+                </div>
+                <div class="goal-card" style="border-left-color:#f472b6;">
+                    <div class="goal-label" style="color:#f472b6;">ТВОРЧЕСТВО</div>
+                    <div class="goal-text">Доделать «Бугеит». Записать трек с Эдвардом.</div>
+                </div>
+                <div class="goal-card" style="border-left-color:#f0abfc;">
+                    <div class="goal-label" style="color:#f0abfc;">ОТНОШЕНИЯ</div>
+                    <div class="goal-text">Найти «единицу», с которой можно быть собой без масок.</div>
+                </div>
+                <div class="goal-card" style="border-left-color:#34d399;">
+                    <div class="goal-label" style="color:#34d399;">РАЗВИТИЕ</div>
+                    <div class="goal-text">Научиться отдыхать без чувства вины.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- POETRY -->
+<section id="poetry" class="section">
+    <div class="section-inner">
+        <div class="section-label">Поэзия</div>
+        <h2 class="section-title glitch-line">Стихи</h2>
+        <p class="section-desc">Строчки, которые остаются, когда слова заканчиваются.</p>
+
+        <div class="card glitch-hover" style="padding:0;">
+            <div style="padding:0.8rem 1.5rem 0;text-align:center;">
+                <span class="section-label" style="margin-bottom:0.3rem;">I</span>
+                <div style="font-size:0.85rem;color:var(--text-muted);font-style:italic;margin-bottom:0.5rem;">Без названия</div>
+            </div>
+            <div class="poem-a">
+                мир не сказка, и не история.<br>
+                мир — пожалуй всего лишь бутафория,<br>
+                бесконечное пространство нас окружает,<br>
+                столько идей, но бесконечность всё же сильней.
+            </div>
+            <div class="poem-a">
+                Сила пространства вокруг планет,<br>
+                будто на фильм купил последний билет,<br>
+                Фильм зацепил... своей глубиной,<br>
+                столько мыслей теперь рядом со мной.
+            </div>
+            <div class="poem-a">
+                идея фильма очень проста,<br>
+                взошла на небе голубая луна,<br>
+                её свет озарил воду, песок,<br>
+                но той ночью получил кто-то пулю в висок.
+            </div>
+            <div class="poem-a">
+                упал без дыхания, рядом с водой,<br>
+                чайки взлетели ударной волной,<br>
+                прибой разошёлся, о скалы разбившись,<br>
+                Луна освещает свежую могилу.
+            </div>
+        </div>
+
+        <div style="text-align:center;padding:1.5rem 0;color:var(--text-muted);font-size:0.75rem;letter-spacing:4px;">❖ ❖ ❖</div>
+
+        <div class="card glitch-hover" style="padding:0;">
+            <div style="padding:0.8rem 1.5rem 0;text-align:center;">
+                <span class="section-label" style="margin-bottom:0.3rem;">II</span>
+                <div style="font-size:0.85rem;color:var(--text-muted);font-style:italic;margin-bottom:0.5rem;">Без названия</div>
+            </div>
+            <div class="poem-e">
+                Время прошло и вот он тот шаг,<br>
+                предсказуемо, смело, влюбился простак.<br>
+                И теперь мне никак свою жизнь не понять,<br>
+                Ничего не поделать — моё решение — молчать.
+            </div>
+            <div class="poem-e">
+                Но сердце мне скажет, что нужно идти,<br>
+                Держа эту нить, стараться дальше прожить.<br>
+                Понимаешь что любишь после тысячи фраз,<br>
+                И своею любовью называешь лишь раз.
+            </div>
+            <div class="poem-e">
+                Понимая всё дальше, не хочу отпускать,<br>
+                Но там ты не знаешь что будет опять.<br>
+                Время за полночь, уже почти пять.<br>
+                Обдумав всё лишь, приходит тот сон,<br>
+                Что всё получилось, и вот он наш дом.
+            </div>
+            <div class="poem-e">
+                Что ждёт на пороге стоя она,<br>
+                В кого я влюблён, кому жизнь отдана.<br>
+                Сон тот приятный, надавит плечом,<br>
+                Но мы ведь не боги, не добить кирпичом...
+            </div>
+            <div class="poem-e">
+                Проснувшись я понял, что так не могу.<br>
+                И всё рассказал, что очень люблю.<br>
+                Боялся всего, но была — не была,<br>
+                Не закончится жизнь, она не игра.
+            </div>
+            <div class="poem-e">
+                Увидев ответ облегчённо вздохнул,<br>
+                И себя ущипнув, понял — не сплю.<br>
+                Однако не знаю, что теперь ей сказать,<br>
+                Неловкую тишину как-то нужно убрать.
+            </div>
+            <div class="poem-e">
+                Ни эмоций, ни действий, пока не принял,<br>
+                А лишь подумав, про себя прошептал:<br>
+                «Будет всё сложно, одного не пойму,<br>
+                ну как ведь так можно, оставаясь в бреду»
+            </div>
+            <div class="poem-e">
+                И боюсь я теперь её потерять,<br>
+                Ведь она та, кто заставил меня мечтать.<br>
+                И сейчас нам лишь нужно прожить пару лет,<br>
+                Пару лет ожиданий — ожидая ответ...
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+    <div class="section-inner">
+        <div class="section-label">Творчество</div>
+        <h2 class="section-title">Музыка & Рендеры</h2>
+        <p class="section-desc">То, что я создаю, когда не пишу код.</p>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">♪</span>
+                <span class="card-title">Саундтрек жизни</span>
+            </div>
+            <div class="quote-block">
+                «Я не могу жить без музыки. Она — фон, на котором я паяю, пишу код и собираю себя заново.»
+            </div>
+            <div class="skill-grid" style="margin:0.8rem 0;">
+                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Lo-fi</span>
+                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">Synthwave</span>
+                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">Hip-Hop</span>
+                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">Ambient</span>
+                <span class="genre-tag" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">Electronic</span>
+                <span class="genre-tag" style="border-color:rgba(248,113,113,0.3);color:#f87171;">Rock</span>
+                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">Rap</span>
+                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Post-Punk</span>
+            </div>
+            <div class="music-player">
+                <div class="music-icon">♫</div>
+                <div class="music-info">
+                    <div class="music-label">Сейчас в плеере</div>
+                    <div class="music-artist">ЧВ, feelinsomnia — Свет в окнах вселенной</div>
+                </div>
+                <button class="btn btn-neon" onclick="toggleMusic()" style="padding:0.4rem 1.2rem;font-size:0.82rem;flex-shrink:0;"><span>♫ Вкл/Выкл</span></button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="icon">◈</span>
+                <span class="card-title">Blender Gallery</span>
+            </div>
+            <div class="gallery">
+                <img src="img/render/аватарка (2).png" alt="Render" loading="lazy">
+                <img src="img/render/аватарка (3).png" alt="Render" loading="lazy">
+                <img src="img/render/oblozkatreka2.png" alt="Render" loading="lazy">
+                <img src="img/render/hfsadfhasjbdfljkasdhfblasdjkfgasoifhjnasuo;dfuhjs;lkdfjglaskjglsjkahgkjsdhnglkjasdjg (2).png" alt="Render" loading="lazy">
+                <img src="img/render/карты1 (1).png" alt="Render" loading="lazy">
+                <img src="img/render/лес - процеДурка (6).png" alt="Render" loading="lazy">
+                <img src="img/render/нивановыйгод (2).png" alt="Render" loading="lazy">
+                <img src="img/render/kadilak.png" alt="Render" loading="lazy">
+                <img src="img/render/lksjdfls.png" alt="Render" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+    <p>© 2026 · Богдан Альникин · А.Б.В.</p>
+    <p style="margin-top:0.3rem;font-size:0.75rem;">Сделан с душой и нулями-единицами</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="close" onclick="closeLightbox()">✕</span>
+    <span class="nav prev" onclick="event.stopPropagation(); navLightbox(-1)">‹</span>
+    <img id="lightbox-img" src="" alt="">
+    <span class="nav next" onclick="event.stopPropagation(); navLightbox(1)">›</span>
+    <span id="lightbox-counter" style="position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.35);font-size:0.8rem;letter-spacing:1px;"></span>
+</div>
+
+<audio id="bg-music" preload="auto"></audio>
+
+<button class="music-btn" id="musicToggle" onclick="toggleMusic()">♪</button>
+
+<script src="js/starfield.js"></script>
+<script src="js/quotes.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/playlist.js"></script>
+<script src="js/music.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/craziness.js"></script>
+
+</body>
+</html>
