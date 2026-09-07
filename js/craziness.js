@@ -9,7 +9,7 @@
         star.className = 'cursor-star';
         star.style.left = (e.clientX - 2) + 'px';
         star.style.top = (e.clientY - 2) + 'px';
-        star.style.background = ['#7c8cff', '#a07cf8', '#f0abfc', '#fff'][Math.floor(Math.random() * 4)];
+        star.style.background = ['#ff6b1a', '#ffb35c', '#e2603a', '#ede4d3'][Math.floor(Math.random() * 4)];
         star.style.width = (2 + Math.random() * 4) + 'px';
         star.style.height = star.style.width;
         trail.appendChild(star);
@@ -23,7 +23,7 @@ document.addEventListener('click', e => {
     ripple.className = 'click-ripple';
     ripple.style.left = e.clientX + 'px';
     ripple.style.top = e.clientY + 'px';
-    ripple.style.border = '2px solid ' + ['#7c8cff', '#a07cf8', '#f0abfc'][Math.floor(Math.random() * 3)];
+    ripple.style.border = '2px solid ' + ['#ff6b1a', '#ffb35c', '#e2603a'][Math.floor(Math.random() * 3)];
     document.body.appendChild(ripple);
     setTimeout(() => ripple.remove(), 800);
 });
@@ -62,7 +62,7 @@ document.addEventListener('click', e => {
         obj.style.animationDuration = (15 + Math.random() * 25) + 's';
         obj.style.animationDelay = (Math.random() * 20) + 's';
         obj.style.opacity = '0';
-        obj.style.color = ['#7c8cff', '#a07cf8', '#f0abfc', '#34d399'][Math.floor(Math.random() * 4)];
+        obj.style.color = ['#ff6b1a', '#ffb35c', '#e2603a', '#ede4d3'][Math.floor(Math.random() * 4)];
         document.body.appendChild(obj);
     }
 })();
@@ -121,9 +121,9 @@ function showEgg(msg) {
 /* ── 9. Secret console message ── */
 (function() {
     const styles = [
-        'color: #7c8cff; font-size: 14px; font-weight: bold;',
-        'color: #a07cf8; font-size: 12px;',
-        'color: #f0abfc; font-size: 11px;',
+        'color: #ff6b1a; font-size: 14px; font-weight: bold;',
+        'color: #ffb35c; font-size: 12px;',
+        'color: #e2603a; font-size: 11px;',
     ];
     console.log('%c╔══════════════════════════════╗', styles[0]);
     console.log('%c║  0 + 1 = 10                 ║', styles[0]);
@@ -131,7 +131,7 @@ function showEgg(msg) {
     console.log('%c║  tg: @randomaizzer         ║', styles[1]);
     console.log('%c║  vk: RANDOMAIZZER          ║', styles[2]);
     console.log('%c╚══════════════════════════════╝', styles[0]);
-    console.log('%c🎮 Нажмите ↑↑↓↓←→←→BA для пасхалки', 'color: #8b8fa3; font-style: italic;');
+    console.log('%c🎮 Нажмите ↑↑↓↓←→←→BA для пасхалки', 'color: #a89e8d; font-style: italic;');
 })();
 
 /* ── 10. Random button glow pulse on nav links ── */
@@ -142,7 +142,7 @@ function showEgg(msg) {
             const random = links[Math.floor(Math.random() * links.length)];
             if (!random.classList.contains('active')) {
                 random.style.transition = '0.3s';
-                random.style.boxShadow = '0 0 15px rgba(124,140,255,0.3)';
+                random.style.boxShadow = '0 0 15px rgba(255,107,26,0.35)';
                 setTimeout(() => { random.style.boxShadow = 'none'; }, 300);
             }
         }

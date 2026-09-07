@@ -8,10 +8,13 @@
 </head>
 <body>
 
+<div id="read-progress"></div>
+
 <canvas id="starfield"></canvas>
 
 <!-- HERO -->
 <section id="hero">
+    <div class="hero-bg" aria-hidden="true"><img src="img/ai/hero-bg.jpg" alt="" data-parallax="0.22"></div>
     <img src="img/image/avatar.jpg" alt="avatar" class="hero-avatar">
     <h1 class="hero-name glitch-line">尺卂几ᗪㄖ爪卂丨乙乙乇尺</h1>
     <p class="hero-sub">А.Б.В. · 1 июня 2004 · Пятигорск · 22 года</p>
@@ -33,39 +36,17 @@
     </div>
 </nav>
 
-<!-- PLAYER -->
-<div id="player-bar-container">
-    <div class="player-inner">
-        <div class="player-left">
-            <button id="player-prev" class="player-btn" onclick="prevTrack()" title="Предыдущий">⏮</button>
-            <button id="player-play" class="player-btn" onclick="playerPlay()">▶</button>
-            <button id="player-next" class="player-btn" onclick="nextTrack()" title="Следующий">⏭</button>
-            <div class="player-track-info">
-                <div class="player-track-name" id="player-track-name">—</div>
-                <div class="player-track-artist" id="player-track-artist"></div>
-            </div>
-        </div>
-        <div class="player-center" id="player-bar" onclick="seekMusic(event)">
-            <div class="player-track-progress">
-                <div id="player-progress" class="player-progress-fill" style="width:0%"></div>
-            </div>
-            <div class="player-time">
-                <span id="player-current">0:00</span>
-                <span id="player-total">0:00</span>
-            </div>
-        </div>
-        <div class="player-right">
-            <button class="player-btn" onclick="toggleMusic()" title="Play/Pause">♫</button>
-        </div>
-    </div>
-</div>
-
 <!-- ABOUT -->
 <section id="about" class="section">
     <div class="section-inner">
         <div class="section-label">Путь</div>
         <h2 class="section-title glitch-line">Биография</h2>
         <p class="section-desc">Как из мальчика без отца вырос человек-оркестр.</p>
+
+        <figure class="banner" data-reveal>
+            <img src="img/ai/workbench.jpg" alt="Ночной верстак: паяльник, приборы и код" loading="lazy" data-parallax="0.12">
+            <figcaption>Верстак · ночь · канифоль</figcaption>
+        </figure>
 
         <div class="card glitch-hover">
             <div class="card-header">
@@ -176,81 +157,81 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#818cf8;">▣</span>
+                <span class="icon" style="color:#ff7a2a;">▣</span>
                 <span class="card-title">Сети & Системы</span>
             </div>
             <div class="skill-grid">
-                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Сети LAN/WAN</span>
-                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">VPN</span>
-                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">NAS</span>
-                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">AD/GPO</span>
-                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Linux</span>
-                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Windows Server</span>
+                <span class="genre-tag" style="border-color:rgba(255,122,42,0.3);color:#ff7a2a;">Сети LAN/WAN</span>
+                <span class="genre-tag" style="border-color:rgba(255,122,42,0.3);color:#ff7a2a;">VPN</span>
+                <span class="genre-tag" style="border-color:rgba(255,122,42,0.3);color:#ff7a2a;">NAS</span>
+                <span class="genre-tag" style="border-color:rgba(255,122,42,0.3);color:#ff7a2a;">AD/GPO</span>
+                <span class="genre-tag" style="border-color:rgba(255,122,42,0.3);color:#ff7a2a;">Linux</span>
+                <span class="genre-tag" style="border-color:rgba(255,122,42,0.3);color:#ff7a2a;">Windows Server</span>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#34d399;">⌘</span>
+                <span class="icon" style="color:#ffc46b;">⌘</span>
                 <span class="card-title">Код & Скрипты</span>
             </div>
             <div class="skill-grid">
-                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">Python</span>
-                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">Bash</span>
-                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">PowerShell</span>
-                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">PyQt5</span>
-                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">Tkinter</span>
+                <span class="genre-tag" style="border-color:rgba(255,196,107,0.3);color:#ffc46b;">Python</span>
+                <span class="genre-tag" style="border-color:rgba(255,196,107,0.3);color:#ffc46b;">Bash</span>
+                <span class="genre-tag" style="border-color:rgba(255,196,107,0.3);color:#ffc46b;">PowerShell</span>
+                <span class="genre-tag" style="border-color:rgba(255,196,107,0.3);color:#ffc46b;">PyQt5</span>
+                <span class="genre-tag" style="border-color:rgba(255,196,107,0.3);color:#ffc46b;">Tkinter</span>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#a78bfa;">◆</span>
+                <span class="icon" style="color:#e08a4e;">◆</span>
                 <span class="card-title">3D & Дизайн</span>
             </div>
             <div class="skill-grid">
-                <span class="genre-tag" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">Blender</span>
-                <span class="genre-tag" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">3D-моделинг</span>
-                <span class="genre-tag" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">Photoshop</span>
+                <span class="genre-tag" style="border-color:rgba(224,138,78,0.3);color:#e08a4e;">Blender</span>
+                <span class="genre-tag" style="border-color:rgba(224,138,78,0.3);color:#e08a4e;">3D-моделинг</span>
+                <span class="genre-tag" style="border-color:rgba(224,138,78,0.3);color:#e08a4e;">Photoshop</span>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#f472b6;">♢</span>
+                <span class="icon" style="color:#e2603a;">♢</span>
                 <span class="card-title">AI & Voice</span>
             </div>
             <div class="skill-grid">
-                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">faster-whisper</span>
-                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">DeepSeek</span>
-                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">RVC</span>
-                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">OCR/TTS</span>
+                <span class="genre-tag" style="border-color:rgba(226,96,58,0.3);color:#e2603a;">faster-whisper</span>
+                <span class="genre-tag" style="border-color:rgba(226,96,58,0.3);color:#e2603a;">DeepSeek</span>
+                <span class="genre-tag" style="border-color:rgba(226,96,58,0.3);color:#e2603a;">RVC</span>
+                <span class="genre-tag" style="border-color:rgba(226,96,58,0.3);color:#e2603a;">OCR/TTS</span>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#fbbf24;">⚒</span>
+                <span class="icon" style="color:#ffb35c;">⚒</span>
                 <span class="card-title">Hardware & Ремонт</span>
             </div>
             <div class="skill-grid">
-                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">Пайка</span>
-                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">DC-DC</span>
-                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">BMS</span>
-                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">EDL-cable</span>
-                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">Ремонт телефонов</span>
+                <span class="genre-tag" style="border-color:rgba(255,179,92,0.3);color:#ffb35c;">Пайка</span>
+                <span class="genre-tag" style="border-color:rgba(255,179,92,0.3);color:#ffb35c;">DC-DC</span>
+                <span class="genre-tag" style="border-color:rgba(255,179,92,0.3);color:#ffb35c;">BMS</span>
+                <span class="genre-tag" style="border-color:rgba(255,179,92,0.3);color:#ffb35c;">EDL-cable</span>
+                <span class="genre-tag" style="border-color:rgba(255,179,92,0.3);color:#ffb35c;">Ремонт телефонов</span>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#f87171;">◎</span>
+                <span class="icon" style="color:#c4502e;">◎</span>
                 <span class="card-title">Жизненные</span>
             </div>
             <div class="skill-grid">
-                <span class="genre-tag" style="border-color:rgba(248,113,113,0.3);color:#f87171;">Сантехника</span>
-                <span class="genre-tag" style="border-color:rgba(248,113,113,0.3);color:#f87171;">Электрика</span>
-                <span class="genre-tag" style="border-color:rgba(248,113,113,0.3);color:#f87171;">Борщ</span>
+                <span class="genre-tag" style="border-color:rgba(196,80,46,0.3);color:#c4502e;">Сантехника</span>
+                <span class="genre-tag" style="border-color:rgba(196,80,46,0.3);color:#c4502e;">Электрика</span>
+                <span class="genre-tag" style="border-color:rgba(196,80,46,0.3);color:#c4502e;">Борщ</span>
             </div>
         </div>
     </div>
@@ -265,7 +246,7 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#34d399;">◈</span>
+                <span class="icon" style="color:#ffc46b;">◈</span>
                 <span class="card-title">Google Drive Stack</span>
                 <span class="stat-badge">Python</span>
             </div>
@@ -284,7 +265,7 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#a78bfa;">◈</span>
+                <span class="icon" style="color:#e08a4e;">◈</span>
                 <span class="card-title">Buhalgini / Buhbear</span>
                 <span class="stat-badge">Blender</span>
             </div>
@@ -306,7 +287,7 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#f472b6;">◈</span>
+                <span class="icon" style="color:#e2603a;">◈</span>
                 <span class="card-title">Neural Overlay</span>
                 <span class="stat-badge">AI</span>
             </div>
@@ -326,7 +307,7 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#fbbf24;">◈</span>
+                <span class="icon" style="color:#ffb35c;">◈</span>
                 <span class="card-title">Голосовой ассистент «Бугеит»</span>
                 <span class="stat-badge">Voice</span>
             </div>
@@ -347,7 +328,7 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#34d399;">◈</span>
+                <span class="icon" style="color:#ffc46b;">◈</span>
                 <span class="card-title">TG AutoResponder</span>
                 <span class="stat-badge">Bot</span>
             </div>
@@ -367,7 +348,7 @@
 
         <div class="card">
             <div class="card-header">
-                <span class="icon" style="color:#f87171;">◈</span>
+                <span class="icon" style="color:#c4502e;">◈</span>
                 <span class="card-title">EDL-кабель и прошивка Redmi</span>
                 <span class="stat-badge">Hardware</span>
             </div>
@@ -394,9 +375,14 @@
         <h2 class="section-title glitch-line">Философия & Цели</h2>
         <p class="section-desc">Как я вижу мир и куда иду.</p>
 
+        <figure class="banner" data-reveal>
+            <img src="img/ai/summit.jpg" alt="Одинокая фигура на вершине под Млечным путём" loading="lazy" data-parallax="0.12">
+            <figcaption>Точка, где всё уже есть</figcaption>
+        </figure>
+
         <div class="card glitch-hover">
             <div class="card-header">
-                <span class="icon" style="color:#f0abfc;">◈</span>
+                <span class="icon" style="color:#ffc98a;">◈</span>
                 <span class="card-title">Кредо</span>
             </div>
             <div class="quote-block">
@@ -466,20 +452,20 @@
                 «Это самый важный вопрос. Я уже знаю ответ. Мне не нужна <span class="hl-pink">«красивая»</span>. Мне не нужна <span class="hl-pink">«умная»</span>. <span class="glow-text">Мне нужна та, с которой я могу быть собой без масок.</span>»
             </div>
 
-            <div class="rel-card" style="border-left-color:#f472b6;">
+            <div class="rel-card" style="border-left-color:#e2603a;">
                 <span class="tag-pink">●</span> <strong>Не боится моей глубины.</strong><br>
                 <span style="color:var(--text-dim);font-size:0.88rem;">Я сложный. Во мне много боли, странностей и философии. Кто-то назовёт это «тяжёлым багажом». Я называю это «опытом».</span>
             </div>
-            <div class="rel-card" style="border-left-color:#fbbf24;">
+            <div class="rel-card" style="border-left-color:#ffb35c;">
                 <span class="tag-gold">●</span> <strong>Умеет смеяться над абсурдом.</strong><br>
                 <span style="color:var(--text-dim);font-size:0.88rem;">Если я скажу «давай полетим на Луну на экскаваторе», она ответит: «а ты взял билеты?».</span>
             </div>
-            <div class="rel-card" style="border-left-color:#818cf8;">
+            <div class="rel-card" style="border-left-color:#ff7a2a;">
                 <span class="glow-text">●</span> <strong>Не ищет идеальности.</strong><br>
                 <span style="color:var(--text-dim);font-size:0.88rem;">Она знает, что я могу быть сломанным, уставшим и странным — и это нормально.</span>
             </div>
-            <div class="rel-card" style="border-left-color:#f0abfc;">
-                <span style="color:#f0abfc">●</span> <strong>Видит мои шрамы и не отворачивается.</strong><br>
+            <div class="rel-card" style="border-left-color:#ffc98a;">
+                <span style="color:#ffc98a">●</span> <strong>Видит мои шрамы и не отворачивается.</strong><br>
                 <span style="color:var(--text-dim);font-size:0.88rem;">Я научился не прятать их. Теперь я хочу, чтобы кто-то мог на них смотреть без страха.</span>
             </div>
 
@@ -497,20 +483,20 @@
                 <span class="card-title">Цели</span>
             </div>
             <div class="goal-grid">
-                <div class="goal-card" style="border-left-color:#818cf8;">
-                    <div class="goal-label" style="color:#818cf8;">РАБОТА</div>
+                <div class="goal-card" style="border-left-color:#ff7a2a;">
+                    <div class="goal-label" style="color:#ff7a2a;">РАБОТА</div>
                     <div class="goal-text">Углубиться в администрирование и автоматизацию. Фриланс или своё дело.</div>
                 </div>
-                <div class="goal-card" style="border-left-color:#f472b6;">
-                    <div class="goal-label" style="color:#f472b6;">ТВОРЧЕСТВО</div>
+                <div class="goal-card" style="border-left-color:#e2603a;">
+                    <div class="goal-label" style="color:#e2603a;">ТВОРЧЕСТВО</div>
                     <div class="goal-text">Доделать «Бугеит». Записать трек с Эдвардом.</div>
                 </div>
-                <div class="goal-card" style="border-left-color:#f0abfc;">
-                    <div class="goal-label" style="color:#f0abfc;">ОТНОШЕНИЯ</div>
+                <div class="goal-card" style="border-left-color:#ffc98a;">
+                    <div class="goal-label" style="color:#ffc98a;">ОТНОШЕНИЯ</div>
                     <div class="goal-text">Найти «единицу», с которой можно быть собой без масок.</div>
                 </div>
-                <div class="goal-card" style="border-left-color:#34d399;">
-                    <div class="goal-label" style="color:#34d399;">РАЗВИТИЕ</div>
+                <div class="goal-card" style="border-left-color:#ffc46b;">
+                    <div class="goal-label" style="color:#ffc46b;">РАЗВИТИЕ</div>
                     <div class="goal-text">Научиться отдыхать без чувства вины.</div>
                 </div>
             </div>
@@ -524,6 +510,11 @@
         <div class="section-label">Поэзия</div>
         <h2 class="section-title glitch-line">Стихи</h2>
         <p class="section-desc">Строчки, которые остаются, когда слова заканчиваются.</p>
+
+        <figure class="banner tall" data-reveal>
+            <img src="img/ai/moonsea.jpg" alt="Луна над ночным морем" loading="lazy" data-parallax="0.1">
+            <figcaption>«взошла на небе голубая луна»</figcaption>
+        </figure>
 
         <div class="card glitch-hover" style="padding:0;">
             <div style="padding:0.8rem 1.5rem 0;text-align:center;">
@@ -616,6 +607,13 @@
     </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+        <span>0 + 1 = 10 · ТЕХНАРЬ С ДУШОЙ ПОЭТА · ПАЯЛЬНИК · КОД · ТИШИНА ·&nbsp;</span><span>0 + 1 = 10 · ТЕХНАРЬ С ДУШОЙ ПОЭТА · ПАЯЛЬНИК · КОД · ТИШИНА ·&nbsp;</span>
+    </div>
+</div>
+
 <!-- GALLERY -->
 <section id="gallery" class="section">
     <div class="section-inner">
@@ -632,22 +630,14 @@
                 «Я не могу жить без музыки. Она — фон, на котором я паяю, пишу код и собираю себя заново.»
             </div>
             <div class="skill-grid" style="margin:0.8rem 0;">
-                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Lo-fi</span>
-                <span class="genre-tag" style="border-color:rgba(244,114,182,0.3);color:#f472b6;">Synthwave</span>
-                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">Hip-Hop</span>
-                <span class="genre-tag" style="border-color:rgba(52,211,153,0.3);color:#34d399;">Ambient</span>
-                <span class="genre-tag" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">Electronic</span>
-                <span class="genre-tag" style="border-color:rgba(248,113,113,0.3);color:#f87171;">Rock</span>
-                <span class="genre-tag" style="border-color:rgba(251,191,36,0.3);color:#fbbf24;">Rap</span>
-                <span class="genre-tag" style="border-color:rgba(129,140,248,0.3);color:#818cf8;">Post-Punk</span>
-            </div>
-            <div class="music-player">
-                <div class="music-icon">♫</div>
-                <div class="music-info">
-                    <div class="music-label">Сейчас в плеере</div>
-                    <div class="music-artist">ЧВ, feelinsomnia — Свет в окнах вселенной</div>
-                </div>
-                <button class="btn btn-neon" onclick="toggleMusic()" style="padding:0.4rem 1.2rem;font-size:0.82rem;flex-shrink:0;"><span>♫ Вкл/Выкл</span></button>
+                <span class="genre-tag" style="border-color:rgba(255,122,42,0.3);color:#ff7a2a;">Lo-fi</span>
+                <span class="genre-tag" style="border-color:rgba(226,96,58,0.3);color:#e2603a;">Synthwave</span>
+                <span class="genre-tag" style="border-color:rgba(255,179,92,0.3);color:#ffb35c;">Hip-Hop</span>
+                <span class="genre-tag" style="border-color:rgba(255,196,107,0.3);color:#ffc46b;">Ambient</span>
+                <span class="genre-tag" style="border-color:rgba(224,138,78,0.3);color:#e08a4e;">Electronic</span>
+                <span class="genre-tag" style="border-color:rgba(196,80,46,0.3);color:#c4502e;">Rock</span>
+                <span class="genre-tag" style="border-color:rgba(255,179,92,0.3);color:#ffb35c;">Rap</span>
+                <span class="genre-tag" style="border-color:rgba(255,122,42,0.3);color:#ff7a2a;">Post-Punk</span>
             </div>
         </div>
 
@@ -666,6 +656,8 @@
                 <img src="img/render/нивановыйгод (2).png" alt="Render" loading="lazy">
                 <img src="img/render/kadilak.png" alt="Render" loading="lazy">
                 <img src="img/render/lksjdfls.png" alt="Render" loading="lazy">
+                <img src="img/ai/moonsea.jpg" alt="AI-арт: луна над морем" loading="lazy">
+                <img src="img/ai/summit.jpg" alt="AI-арт: вершина под Млечным путём" loading="lazy">
             </div>
         </div>
     </div>
@@ -686,17 +678,14 @@
     <span id="lightbox-counter" style="position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.35);font-size:0.8rem;letter-spacing:1px;"></span>
 </div>
 
-<audio id="bg-music" preload="auto"></audio>
-
-<button class="music-btn" id="musicToggle" onclick="toggleMusic()">♪</button>
+<button id="toTop" aria-label="наверх">↑</button>
 
 <script src="js/starfield.js"></script>
 <script src="js/quotes.js"></script>
 <script src="js/nav.js"></script>
-<script src="js/playlist.js"></script>
-<script src="js/music.js"></script>
 <script src="js/gallery.js"></script>
 <script src="js/craziness.js"></script>
+<script src="js/fx.js"></script>
 
 </body>
 </html>
